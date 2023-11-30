@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://ca1wl3b1cp2hl"]
+
+[ext_resource type="Texture2D" uid="uid://ecdil4ycivi7" path="res://assets/world/levels/level_7.png" id="1_uod1l"]
+[ext_resource type="PackedScene" uid="uid://dlomhsrv3nvdm" path="res://scenes/door.tscn" id="2_a2lbe"]
+[ext_resource type="Texture2D" uid="uid://b0mgfxxibfkfn" path="res://assets/world/levels/level_7_overlay-right.png" id="3_b1oo6"]
+[ext_resource type="Texture2D" uid="uid://degmyjee6habi" path="res://assets/world/levels/level_7_overlay-left.png" id="4_gkal1"]
+[ext_resource type="PackedScene" uid="uid://daa8ski5udcpd" path="res://scenes/button.tscn" id="4_wj6a8"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="5_dhobe"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="6_elt6e"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="7_0nx0u"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="8_umirf"]
+[ext_resource type="PackedScene" uid="uid://bnhtlf3p84bb8" path="res://scenes/pushable_box.tscn" id="9_frhgl"]
+[ext_resource type="PackedScene" uid="uid://dgfc1x2vlnbpw" path="res://scenes/super_death_area.tscn" id="11_nowm5"]
+[ext_resource type="Texture2D" uid="uid://bireh56qeu3lq" path="res://assets/world/hazards/super_death_standalone.png" id="12_canlr"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="13_tbp04"]
+[ext_resource type="PackedScene" uid="uid://c1xyx0j58w2oe" path="res://scenes/wall_light.tscn" id="14_r3pjt"]
+
+[node name="Level7" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_uod1l")
+
+[node name="Door" parent="." instance=ExtResource("2_a2lbe")]
+position = Vector2(522, 309)
+type = "large"
+color = "pink"
+id = 2
+
+[node name="Door2" parent="." instance=ExtResource("2_a2lbe")]
+position = Vector2(175, 309)
+type = "large"
+color = "green"
+id = 3
+opening_dir = -1
+
+[node name="LevelMap3" type="Sprite2D" parent="."]
+position = Vector2(697.5, 282)
+scale = Vector2(3, 3)
+texture = ExtResource("3_b1oo6")
+
+[node name="LevelMap4" type="Sprite2D" parent="."]
+position = Vector2(1, 306)
+scale = Vector2(3, 3)
+texture = ExtResource("4_gkal1")
+
+[node name="Button" parent="." instance=ExtResource("4_wj6a8")]
+position = Vector2(181, 104)
+color = "pink"
+id = 2
+
+[node name="Button2" parent="." instance=ExtResource("4_wj6a8")]
+position = Vector2(468, 565)
+color = "green"
+id = 3
+
+[node name="Player" parent="." instance=ExtResource("5_dhobe")]
+position = Vector2(344, 560)
+
+[node name="Flag" parent="." instance=ExtResource("6_elt6e")]
+position = Vector2(539, 142)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("7_0nx0u")]
+position = Vector2(342, 563)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("8_umirf")]
+position = Vector2(40, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("8_umirf")]
+position = Vector2(659, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("8_umirf")]
+position = Vector2(354, 39)
+scale = Vector2(33.52, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("8_umirf")]
+position = Vector2(354, 658)
+scale = Vector2(40.64, 1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("8_umirf")]
+position = Vector2(347, 225)
+rotation = 1.57239
+scale = Vector2(21.5999, 4.60032)
+
+[node name="PushableBox" parent="." instance=ExtResource("9_frhgl")]
+position = Vector2(567, 563)
+
+[node name="PushableBox2" parent="." instance=ExtResource("9_frhgl")]
+position = Vector2(247, 156)
+
+[node name="SuperDeathArea" parent="." instance=ExtResource("11_nowm5")]
+position = Vector2(177, 464)
+scale = Vector2(9.56, 1.77)
+type = 1
+rotation_speed = 2
+rotation_direction = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="SuperDeathArea"]
+scale = Vector2(0.26455, 1.42857)
+texture = ExtResource("12_canlr")
+
+[node name="WallLight" parent="." instance=ExtResource("14_r3pjt")]
+position = Vector2(465, 53)
+rotation = 1.5708
+
+[node name="WallLight2" parent="." instance=ExtResource("14_r3pjt")]
+position = Vector2(585, 53)
+rotation = 1.5708
+
+[node name="GUI" parent="." instance=ExtResource("13_tbp04")]

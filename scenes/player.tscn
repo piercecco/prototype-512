@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfab5vlm5tvub"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_q4nwf"]
+[ext_resource type="Texture2D" uid="uid://bg63t2ysbhr21" path="res://assets/player/player.png" id="2_kgyeh"]
+[ext_resource type="Texture2D" uid="uid://bm018i77dx35i" path="res://assets/player/eye.png" id="3_dr55a"]
+[ext_resource type="AudioStream" uid="uid://hvkid4eqg5e5" path="res://assets/player/death_2.wav" id="4_l6rta"]
+[ext_resource type="AudioStream" uid="uid://ba04pwe6hv0wc" path="res://assets/player/dash.wav" id="5_4et25"]
+[ext_resource type="AudioStream" uid="uid://bg15nmmxngwqp" path="res://assets/player/scale_change.wav" id="6_pcp0t"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b70bv"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 10.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 5.0
+damping_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_max = 4.0
+color = Color(0.8, 0.996078, 0.909804, 1)
+hue_variation_min = -0.05
+hue_variation_max = 0.01
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8l2to"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_q4nwf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_b70bv")
+
+[node name="Body" type="Sprite2D" parent="."]
+modulate = Color(0.728822, 0.728822, 0.728822, 1)
+position = Vector2(-1.43051e-06, -1.66893e-06)
+texture = ExtResource("2_kgyeh")
+
+[node name="Eye" type="Sprite2D" parent="."]
+position = Vector2(-8.9407e-08, 8.9407e-08)
+scale = Vector2(2, 2)
+texture = ExtResource("3_dr55a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8l2to")
+
+[node name="DashCooldown" type="Timer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_l6rta")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4et25")
+
+[node name="ScaleSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pcp0t")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

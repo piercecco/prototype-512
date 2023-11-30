@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://njtkjmpe75iq"]
+
+[ext_resource type="Texture2D" uid="uid://c3523m74q7h8h" path="res://assets/world/levels/level_4.png" id="1_e8pv7"]
+[ext_resource type="PackedScene" uid="uid://dxqtcgieav0na" path="res://scenes/tutorial_prompt.tscn" id="2_5cw1u"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_w7hka"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_p1xki"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_e08v6"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_bkkbj"]
+[ext_resource type="PackedScene" uid="uid://b53ag461e0lg8" path="res://scenes/death_area.tscn" id="6_5xkrf"]
+[ext_resource type="PackedScene" uid="uid://dgfc1x2vlnbpw" path="res://scenes/super_death_area.tscn" id="7_hlmc7"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="9_j741y"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_e8pv7")
+
+[node name="TutorialPrompt" parent="." instance=ExtResource("2_5cw1u")]
+position = Vector2(212, 558)
+animation = &"level_4"
+num = 4
+
+[node name="Player" parent="." instance=ExtResource("2_w7hka")]
+position = Vector2(349, 635)
+
+[node name="Flag" parent="." instance=ExtResource("3_p1xki")]
+position = Vector2(351, 188)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("4_e08v6")]
+position = Vector2(348, 636)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_bkkbj")]
+position = Vector2(79, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_bkkbj")]
+position = Vector2(619, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_bkkbj")]
+position = Vector2(354, 74)
+scale = Vector2(33.52, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_bkkbj")]
+position = Vector2(354, 686)
+scale = Vector2(32.24, 1)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("5_bkkbj")]
+position = Vector2(349, 424)
+scale = Vector2(3.76, 12.12)
+
+[node name="DeathArea" parent="." instance=ExtResource("6_5xkrf")]
+position = Vector2(204, 419)
+scale = Vector2(11.6, 2.32)
+
+[node name="SuperDeathArea" parent="." instance=ExtResource("7_hlmc7")]
+position = Vector2(494, 420)
+scale = Vector2(11.4, 2.2)
+
+[node name="GUI" parent="." instance=ExtResource("9_j741y")]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://b16rng5in7tlj"]
+
+[ext_resource type="Script" path="res://scripts/level_9.gd" id="1_x021k"]
+[ext_resource type="Texture2D" uid="uid://cvx1b83xkojcb" path="res://assets/world/levels/level_9.png" id="1_ylp48"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_oygm1"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_mv4mu"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_27bfx"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_wxbhd"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="6_7jsxu"]
+[ext_resource type="PackedScene" uid="uid://dn16xlg2h6vcl" path="res://scenes/size_specific_grid.tscn" id="7_68h61"]
+[ext_resource type="PackedScene" uid="uid://dgfc1x2vlnbpw" path="res://scenes/super_death_area.tscn" id="8_mo4f4"]
+[ext_resource type="Texture2D" uid="uid://bireh56qeu3lq" path="res://assets/world/hazards/super_death_standalone.png" id="9_igd7o"]
+[ext_resource type="PackedScene" uid="uid://dxqtcgieav0na" path="res://scenes/tutorial_prompt.tscn" id="10_vbh3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwjy0"]
+size = Vector2(97, 108)
+
+[node name="Level9" type="Node2D"]
+script = ExtResource("1_x021k")
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ylp48")
+
+[node name="Player" parent="." instance=ExtResource("2_oygm1")]
+position = Vector2(168, 600)
+
+[node name="CustomLevel9Exit" type="Area2D" parent="."]
+position = Vector2(450, 550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomLevel9Exit"]
+position = Vector2(519.5, 582)
+shape = SubResource("RectangleShape2D_uwjy0")
+
+[node name="Flag" parent="." instance=ExtResource("3_mv4mu")]
+position = Vector2(520, 768)
+scale = Vector2(6.16, 5.8)
+
+[node name="Respawn" parent="." instance=ExtResource("4_27bfx")]
+position = Vector2(167, 600)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_wxbhd")]
+position = Vector2(679, 372)
+scale = Vector2(1, 35.68)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_wxbhd")]
+position = Vector2(19, 312)
+scale = Vector2(1, 35.68)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_wxbhd")]
+position = Vector2(341, 417)
+scale = Vector2(2.68, 25.6)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_wxbhd")]
+position = Vector2(377, 19)
+scale = Vector2(48.12, 1)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("5_wxbhd")]
+position = Vector2(346, 679)
+scale = Vector2(35.2, 1)
+
+[node name="SizeSpecificGrid" parent="." instance=ExtResource("7_68h61")]
+position = Vector2(343, 278)
+scale = Vector2(33, 24.8)
+size_type = 2.0
+
+[node name="SuperDeathArea" parent="." instance=ExtResource("8_mo4f4")]
+position = Vector2(171, 290)
+scale = Vector2(11.4, 2.28)
+type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SuperDeathArea"]
+scale = Vector2(0.263158, 1.31579)
+texture = ExtResource("9_igd7o")
+
+[node name="SuperDeathArea4" parent="." instance=ExtResource("8_mo4f4")]
+position = Vector2(528, 199)
+scale = Vector2(11.4, 2.28)
+type = 1
+rotation_speed = 2
+rotation_direction = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="SuperDeathArea4"]
+scale = Vector2(0.263158, 1.31579)
+texture = ExtResource("9_igd7o")
+
+[node name="TutorialPrompt" parent="." instance=ExtResource("10_vbh3l")]
+position = Vector2(342, 508)
+num = 8
+
+[node name="GUI" parent="." instance=ExtResource("6_7jsxu")]
+metadata/_edit_use_anchors_ = true

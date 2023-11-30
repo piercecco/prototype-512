@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgjyuyqvxmu52"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_cxi1r"]
+[ext_resource type="Texture2D" uid="uid://kpkx6niyu7x3" path="res://assets/menu/settings-lines.png" id="2_c2mpt"]
+[ext_resource type="Texture2D" uid="uid://byqh760snef8t" path="res://assets/menu/settings.png" id="2_cjg45"]
+[ext_resource type="FontFile" uid="uid://bbrixo1pcu6uq" path="res://assets/fonts/KarenFat.ttf" id="3_hw43a"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxi1r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -66.0
+offset_top = -59.0
+offset_right = 826.0
+offset_bottom = 758.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(349.5, 349.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_c2mpt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(349.5, 349.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_cjg45")
+
+[node name="SpeedrunCheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 123.0
+offset_right = 441.0
+offset_bottom = 147.0
+scale = Vector2(2, 2)
+
+[node name="SpeedRuntext" type="Label" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 130.0
+offset_right = 513.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("3_hw43a")
+text = "test"
+
+[connection signal="pressed" from="SpeedrunCheckBox" to="." method="_on_speedrun_check_box_pressed"]

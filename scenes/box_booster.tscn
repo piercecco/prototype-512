@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://li13ewuiwb31"]
+
+[ext_resource type="Script" path="res://scripts/box_booster.gd" id="1_npn4m"]
+[ext_resource type="Texture2D" uid="uid://cvfsj1avpaoob" path="res://assets/world/interactables/speed_booster_1.png" id="3_n6upy"]
+[ext_resource type="Texture2D" uid="uid://dh7fv3tx81n2f" path="res://assets/world/interactables/speed_booster_2.png" id="4_4x1wn"]
+[ext_resource type="Texture2D" uid="uid://s4h8ujv7ysco" path="res://assets/world/interactables/speed_booster_3.png" id="5_bnggu"]
+[ext_resource type="Texture2D" uid="uid://kx87t2h2an8x" path="res://assets/world/interactables/speed_booster_4.png" id="6_s3s6y"]
+[ext_resource type="Texture2D" uid="uid://dtusmifn2ix10" path="res://assets/world/interactables/speed_booster_5.png" id="7_wf7ty"]
+[ext_resource type="Texture2D" uid="uid://6wi3xgddanob" path="res://assets/world/interactables/speed_booster_6.png" id="8_nl10h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1pqeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n6upy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4x1wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bnggu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s3s6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wf7ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nl10h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fahpl"]
+size = Vector2(64, 2)
+
+[node name="BoxBooster" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_npn4m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.611765, 0.611765, 0.611765, 1)
+sprite_frames = SubResource("SpriteFrames_1pqeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fahpl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://dabjv3mawyymn"]
+
+[ext_resource type="Texture2D" uid="uid://by7turu1enxr7" path="res://assets/world/levels/level_11.png" id="1_2npqa"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_d23qv"]
+[ext_resource type="Texture2D" uid="uid://clgkln0xriryp" path="res://assets/world/levels/level_11_size_spec_grid.png" id="2_txb68"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_300y4"]
+[ext_resource type="Texture2D" uid="uid://brbjpwh6b06k4" path="res://assets/world/levels/level_11_overlay.png" id="3_qf21w"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_stkce"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_fd00l"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="6_qxqou"]
+[ext_resource type="PackedScene" uid="uid://j7nnuq4da6lw" path="res://scenes/scale_changer_grid.tscn" id="7_ewh1w"]
+[ext_resource type="PackedScene" uid="uid://dgfc1x2vlnbpw" path="res://scenes/super_death_area.tscn" id="9_t3b8o"]
+[ext_resource type="Texture2D" uid="uid://bireh56qeu3lq" path="res://assets/world/hazards/super_death_standalone.png" id="10_houni"]
+
+[sub_resource type="GDScript" id="GDScript_ca8ol"]
+script/source = "extends Area2D
+
+
+var HasCompletedTutorial = false
+
+func _process(delta):
+	if HasCompletedTutorial == true:
+		$SuperDeathArea.position.x += 1
+
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		HasCompletedTutorial = true
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6lco"]
+size = Vector2(40.2344, 82)
+
+[node name="Level11" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_2npqa")
+
+[node name="LevelMap2" type="Sprite2D" parent="."]
+position = Vector2(169, 464)
+scale = Vector2(3, 3)
+texture = ExtResource("2_txb68")
+
+[node name="CustomPlayerTutorial" type="Area2D" parent="."]
+script = SubResource("GDScript_ca8ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomPlayerTutorial"]
+position = Vector2(166.5, 415)
+scale = Vector2(2.56, 1)
+shape = SubResource("RectangleShape2D_m6lco")
+
+[node name="SuperDeathArea" parent="CustomPlayerTutorial" instance=ExtResource("9_t3b8o")]
+position = Vector2(526, 431)
+scale = Vector2(13.24, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="CustomPlayerTutorial/SuperDeathArea"]
+position = Vector2(0.151054, 0)
+scale = Vector2(0.26435, 1.13933)
+texture = ExtResource("10_houni")
+
+[node name="LevelMap3" type="Sprite2D" parent="."]
+position = Vector2(679.5, 401)
+scale = Vector2(3, 3)
+texture = ExtResource("3_qf21w")
+
+[node name="Player" parent="." instance=ExtResource("2_d23qv")]
+position = Vector2(97, 597)
+
+[node name="Flag" parent="." instance=ExtResource("3_300y4")]
+position = Vector2(160, 155)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("4_stkce")]
+position = Vector2(97, 597)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(671, 372)
+scale = Vector2(1, 35.68)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(28, 312)
+scale = Vector2(1, 35.68)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(131, 361)
+scale = Vector2(1.8, 2.8)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(67, 361)
+scale = Vector2(5.16, 2.8)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(201, 361)
+scale = Vector2(1.8, 2.8)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(267, 361)
+scale = Vector2(5.16, 2.8)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(348, 359)
+scale = Vector2(4.84, 18)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(376, 27)
+scale = Vector2(48.12, 1)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("5_fd00l")]
+position = Vector2(346, 671)
+scale = Vector2(35.2, 1)
+
+[node name="ScaleChangerGrid" parent="." instance=ExtResource("7_ewh1w")]
+position = Vector2(169, 460)
+scale = Vector2(13.36, 7.68)
+dimension = 2.0
+id = 6
+
+[node name="GUI" parent="." instance=ExtResource("6_qxqou")]
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="CustomPlayerTutorial" to="CustomPlayerTutorial" method="_on_body_entered"]

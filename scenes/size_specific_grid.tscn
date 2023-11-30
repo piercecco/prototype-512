@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn16xlg2h6vcl"]
+
+[ext_resource type="Script" path="res://scripts/size_specific_grid.gd" id="1_0d6rw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u71w"]
+
+[node name="SizeSpecificGrid" type="Area2D"]
+script = ExtResource("1_0d6rw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3u71w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://beea711j4xt3"]
+
+[ext_resource type="Texture2D" uid="uid://g42sxh7janlm" path="res://assets/world/levels/level_5.png" id="1_ppc8i"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_wdfh4"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_4s6kr"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_u2rba"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_fgews"]
+[ext_resource type="PackedScene" uid="uid://dn16xlg2h6vcl" path="res://scenes/size_specific_grid.tscn" id="6_ae2yp"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="7_hbgsj"]
+[ext_resource type="PackedScene" uid="uid://c1xyx0j58w2oe" path="res://scenes/wall_light.tscn" id="8_awpxx"]
+[ext_resource type="PackedScene" uid="uid://dxqtcgieav0na" path="res://scenes/tutorial_prompt.tscn" id="8_wdwku"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hxny8"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 10.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 14.95
+linear_accel_max = 46.72
+damping_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 2.0
+scale_max = 3.0
+color = Color(0.992157, 0, 0, 1)
+
+[node name="Level5" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ppc8i")
+
+[node name="Player" parent="." instance=ExtResource("2_wdfh4")]
+position = Vector2(576, 575)
+
+[node name="Flag" parent="." instance=ExtResource("3_4s6kr")]
+position = Vector2(110, 112)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("4_u2rba")]
+position = Vector2(576, 574)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(20, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(677, 365)
+scale = Vector2(1, 34.88)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(354, 20)
+scale = Vector2(33.52, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(354, 680)
+scale = Vector2(40.64, 1)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(427, 473)
+scale = Vector2(23.96, 2.36)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_fgews")]
+position = Vector2(269, 249)
+scale = Vector2(23.96, 2.36)
+
+[node name="SizeSpecificGrid" parent="." instance=ExtResource("6_ae2yp")]
+position = Vector2(355, 583)
+scale = Vector2(4.96, 8.64)
+size_type = 0.5
+
+[node name="SizeSpecificGrid2" parent="." instance=ExtResource("6_ae2yp")]
+position = Vector2(355, 361)
+scale = Vector2(4.96, 8.8)
+
+[node name="SizeSpecificGrid3" parent="." instance=ExtResource("6_ae2yp")]
+position = Vector2(356, 129)
+scale = Vector2(4.96, 9.76)
+size_type = 1.5
+
+[node name="TutorialPrompt" parent="." instance=ExtResource("8_wdwku")]
+position = Vector2(354, 665)
+animation = &"size_05"
+num = 5
+
+[node name="TutorialPrompt2" parent="." instance=ExtResource("8_wdwku")]
+position = Vector2(354, 449)
+animation = &"size_1"
+num = 6
+
+[node name="TutorialPrompt3" parent="." instance=ExtResource("8_wdwku")]
+position = Vector2(354, 225)
+animation = &"size_15"
+num = 7
+
+[node name="WallLight" parent="." instance=ExtResource("8_awpxx")]
+position = Vector2(35, 474)
+
+[node name="WallLight2" parent="." instance=ExtResource("8_awpxx")]
+position = Vector2(662, 249)
+rotation = 3.14159
+
+[node name="TutorialPrompt4" parent="." instance=ExtResource("8_wdwku")]
+position = Vector2(220, 470)
+animation = &"level_2"
+num = 2
+
+[node name="GUI" parent="." instance=ExtResource("7_hbgsj")]
+
+[node name="Level5CustomMarker" type="Node2D" parent="GUI"]
+
+[node name="Level5CustomMarker" type="GPUParticles2D" parent="GUI/Level5CustomMarker"]
+position = Vector2(0, 30)
+amount = 75
+process_material = SubResource("ParticleProcessMaterial_hxny8")
+
+[node name="Level5CustomMarker2" type="GPUParticles2D" parent="GUI/Level5CustomMarker"]
+position = Vector2(0, -40)
+amount = 75
+process_material = SubResource("ParticleProcessMaterial_hxny8")

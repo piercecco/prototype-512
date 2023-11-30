@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt4csm3jy2mse"]
+
+[ext_resource type="FontFile" uid="uid://bbrixo1pcu6uq" path="res://assets/fonts/KarenFat.ttf" id="1_8tath"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_tk77y"]
+[ext_resource type="Texture2D" uid="uid://dsbrndoa7hun4" path="res://assets/menu/pause_menu_overlay.png" id="2_rkrmi"]
+
+[sub_resource type="Gradient" id="Gradient_8mib8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1pd0"]
+gradient = SubResource("Gradient_8mib8")
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tk77y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(349.5, 349)
+scale = Vector2(10.9219, 10.9375)
+texture = SubResource("GradientTexture2D_x1pd0")
+
+[node name="Overlay" type="Sprite2D" parent="."]
+position = Vector2(350, 350)
+texture = ExtResource("2_rkrmi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 133.0
+offset_right = 699.0
+offset_bottom = 701.0
+theme_override_fonts/font = ExtResource("1_8tath")
+theme_override_font_sizes/font_size = 50
+text = "Game is currently paused"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 360.0
+offset_right = 437.0
+offset_bottom = 401.0
+
+[node name="Label" type="Label" parent="Resume"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("1_8tath")
+theme_override_font_sizes/font_size = 35
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 480.0
+offset_right = 437.0
+offset_bottom = 521.0
+
+[node name="Label" type="Label" parent="Quit"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("1_8tath")
+theme_override_font_sizes/font_size = 35
+text = "Quit
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

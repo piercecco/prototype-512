@@ -1,0 +1,196 @@
+[gd_scene load_steps=23 format=3 uid="uid://dbkgonbs166rk"]
+
+[ext_resource type="Texture2D" uid="uid://b8317j7oc216v" path="res://assets/player/size_05.png" id="1_hrk6l"]
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_n2x1h"]
+[ext_resource type="Texture2D" uid="uid://ueimosas2got" path="res://assets/player/size_1.png" id="2_aunn5"]
+[ext_resource type="Texture2D" uid="uid://xl67jaee704g" path="res://assets/player/size_15.png" id="3_g65ow"]
+[ext_resource type="Texture2D" uid="uid://vnytrnl0n7q3" path="res://assets/player/size_2.png" id="4_m7i2o"]
+[ext_resource type="Texture2D" uid="uid://bs6pthqjt62t5" path="res://assets/player/death_anim/frame_0.png" id="6_n0pmc"]
+[ext_resource type="Texture2D" uid="uid://csid63amgrpxk" path="res://assets/player/death_anim/frame_1.png" id="7_nwdtl"]
+[ext_resource type="Texture2D" uid="uid://b7dj0julvhfjy" path="res://assets/player/death_anim/frame_2.png" id="8_fuw1b"]
+[ext_resource type="Texture2D" uid="uid://cgb4a4kopguvp" path="res://assets/player/death_anim/frame_3.png" id="9_kl167"]
+[ext_resource type="Texture2D" uid="uid://nq8jvwuu8c66" path="res://assets/player/death_anim/frame_4.png" id="10_rqgny"]
+[ext_resource type="Texture2D" uid="uid://f8h5j2g7ft7m" path="res://assets/player/death_anim/frame_5.png" id="11_57af2"]
+[ext_resource type="Texture2D" uid="uid://q0wdi80t7133" path="res://assets/player/death_anim/frame_6.png" id="12_0hg6h"]
+[ext_resource type="Texture2D" uid="uid://knnuuytb5ggw" path="res://assets/player/death_anim/frame_7.png" id="13_som7l"]
+[ext_resource type="Texture2D" uid="uid://l7373yw28aq7" path="res://assets/player/death_anim/frame_8.png" id="14_h3fwv"]
+[ext_resource type="Texture2D" uid="uid://bvlssoblkyhap" path="res://assets/player/death_anim/frame_9.png" id="15_h0xwq"]
+[ext_resource type="Texture2D" uid="uid://bsg53k24673bo" path="res://assets/player/death_anim/frame_10.png" id="16_jhtx5"]
+[ext_resource type="FontFile" uid="uid://bbrixo1pcu6uq" path="res://assets/fonts/KarenFat.ttf" id="17_yb2hb"]
+[ext_resource type="FontFile" uid="uid://bao8gwbuq838a" path="res://assets/gui/console.ttf" id="18_3ec7m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5v6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hrk6l")
+}],
+"loop": true,
+"name": &"size_05",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aunn5")
+}],
+"loop": true,
+"name": &"size_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g65ow")
+}],
+"loop": true,
+"name": &"size_15",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m7i2o")
+}],
+"loop": true,
+"name": &"size_2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovjwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n0pmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nwdtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fuw1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kl167")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rqgny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_57af2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0hg6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_som7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_h3fwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h0xwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jhtx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h0xwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_h3fwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_som7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0hg6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_57af2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rqgny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kl167")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fuw1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nwdtl")
+}],
+"loop": true,
+"name": &"death",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n0pmc")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_755ll"]
+offsets = PackedFloat32Array(0, 0.155405, 0.351351, 1)
+colors = PackedColorArray(0.439252, 0.439252, 0.439252, 1, 0.439252, 0.439252, 0.439252, 1, 0.305072, 0.305072, 0.305072, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5cjgy"]
+gradient = SubResource("Gradient_755ll")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n2x1h")
+
+[node name="SizeBar" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_s5v6o")
+animation = &"size_05"
+
+[node name="DeathAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(349.5, 349.5)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ovjwc")
+animation = &"death"
+
+[node name="SpeedRunTimer" type="Label" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 40.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("17_yb2hb")
+
+[node name="PlayerLight" type="PointLight2D" parent="."]
+scale = Vector2(5, 5)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.5
+texture = SubResource("GradientTexture2D_5cjgy")
+
+[node name="Console" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_right = 130.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme_override_fonts/font = ExtResource("18_3ec7m")
+theme_override_font_sizes/font_size = 25
+
+[node name="ChangeTextTimer" type="Timer" parent="."]
+
+[node name="LevelTransition" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="LevelTransition"]
+offset_right = 699.0
+offset_bottom = 699.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="DeathAnim" to="." method="_on_death_anim_animation_finished"]
+[connection signal="timeout" from="ChangeTextTimer" to="." method="_on_change_text_timer_timeout"]

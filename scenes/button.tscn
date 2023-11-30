@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://daa8ski5udcpd"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_6iojm"]
+[ext_resource type="Texture2D" uid="uid://m43jog2jqaj" path="res://assets/world/interactables/button_off.png" id="2_3widg"]
+[ext_resource type="Texture2D" uid="uid://d3m4kjy7g3rgd" path="res://assets/world/interactables/button_off_blue.png" id="3_sxsvx"]
+[ext_resource type="Texture2D" uid="uid://j036fwl0balc" path="res://assets/world/interactables/button_off_green.png" id="4_g2il1"]
+[ext_resource type="Texture2D" uid="uid://76yxxo6xs1dh" path="res://assets/world/interactables/button_off_pink.png" id="5_248yl"]
+[ext_resource type="Texture2D" uid="uid://cjwhy08wr4xyr" path="res://assets/world/interactables/button_off_red.png" id="6_deyvt"]
+[ext_resource type="Texture2D" uid="uid://cr88tcg6m8l3l" path="res://assets/world/interactables/button_on.png" id="7_cg5c2"]
+[ext_resource type="Texture2D" uid="uid://b3huhiem8wief" path="res://assets/world/interactables/button_on_blue.png" id="8_ebux0"]
+[ext_resource type="Texture2D" uid="uid://dsxvkxp7p1776" path="res://assets/world/interactables/button_on_green.png" id="9_2gb4u"]
+[ext_resource type="Texture2D" uid="uid://baws44x3vbjn8" path="res://assets/world/interactables/button_on_pink.png" id="10_0uk6r"]
+[ext_resource type="Texture2D" uid="uid://dsb7bkmk0pgai" path="res://assets/world/interactables/button_on_red.png" id="11_vcu1h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u17i6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3widg")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sxsvx")
+}],
+"loop": true,
+"name": &"off_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_g2il1")
+}],
+"loop": true,
+"name": &"off_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_248yl")
+}],
+"loop": true,
+"name": &"off_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_deyvt")
+}],
+"loop": true,
+"name": &"off_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_cg5c2")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ebux0")
+}],
+"loop": true,
+"name": &"on_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2gb4u")
+}],
+"loop": true,
+"name": &"on_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0uk6r")
+}],
+"loop": true,
+"name": &"on_pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vcu1h")
+}],
+"loop": true,
+"name": &"on_red",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjtse"]
+radius = 5.0
+
+[node name="Button" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_6iojm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u17i6")
+animation = &"on_pink"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wjtse")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

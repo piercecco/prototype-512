@@ -1,0 +1,142 @@
+[gd_scene load_steps=17 format=3 uid="uid://dnd43v81pxur"]
+
+[ext_resource type="Texture2D" uid="uid://covrp7v7adfyg" path="res://assets/world/levels/level_10.png" id="1_pwoes"]
+[ext_resource type="Texture2D" uid="uid://boa5vpk0pyklk" path="res://assets/world/levels/level_10_overlay-left-1.png.png" id="2_jc3gd"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_yfp70"]
+[ext_resource type="Texture2D" uid="uid://d3nu1vc0vnrer" path="res://assets/world/levels/level_10_overlay-left-2.png" id="3_h14rh"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_pydbh"]
+[ext_resource type="Texture2D" uid="uid://cv4ewq2cefpjy" path="res://assets/world/levels/level_10_overlay-right-1.png" id="3_uiknw"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_2aaho"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_o6tbe"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="6_4ixvm"]
+[ext_resource type="PackedScene" uid="uid://daa8ski5udcpd" path="res://scenes/button.tscn" id="7_2y8kt"]
+[ext_resource type="Texture2D" uid="uid://ctgbv53q7t7et" path="res://assets/world/levels/level_10_overlay-right-2.png" id="7_scoeu"]
+[ext_resource type="PackedScene" uid="uid://bnhtlf3p84bb8" path="res://scenes/pushable_box.tscn" id="8_b7e6u"]
+[ext_resource type="PackedScene" uid="uid://bb8snaey5v3s4" path="res://scenes/blade.tscn" id="9_t27te"]
+[ext_resource type="PackedScene" uid="uid://dlomhsrv3nvdm" path="res://scenes/door.tscn" id="12_886v4"]
+[ext_resource type="PackedScene" uid="uid://dn16xlg2h6vcl" path="res://scenes/size_specific_grid.tscn" id="16_xs381"]
+[ext_resource type="PackedScene" uid="uid://dxqtcgieav0na" path="res://scenes/tutorial_prompt.tscn" id="17_1r760"]
+
+[node name="Level10" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_pwoes")
+
+[node name="Door" parent="." instance=ExtResource("12_886v4")]
+position = Vector2(351, 389)
+type = "large"
+color = "blue"
+id = 5
+opening_speed = 2
+
+[node name="Door2" parent="." instance=ExtResource("12_886v4")]
+position = Vector2(351, 336)
+type = "large"
+color = "red"
+id = 4
+opening_speed = 2
+opening_dir = -1
+
+[node name="OverlayLeft2" type="Sprite2D" parent="."]
+position = Vector2(110.5, 314.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_h14rh")
+
+[node name="OverlayRight2" type="Sprite2D" parent="."]
+position = Vector2(680.75, 405)
+scale = Vector2(3.04166, 3)
+texture = ExtResource("3_uiknw")
+
+[node name="OverlayRight1" type="Sprite2D" parent="."]
+position = Vector2(590.75, 316)
+scale = Vector2(3, 3)
+texture = ExtResource("7_scoeu")
+
+[node name="Blade" parent="." instance=ExtResource("9_t27te")]
+position = Vector2(615, 386)
+size = 3
+
+[node name="Blade2" parent="." instance=ExtResource("9_t27te")]
+position = Vector2(87, 386)
+dir = -1
+size = 3
+
+[node name="OverlayLeft1" type="Sprite2D" parent="."]
+position = Vector2(17.5, 355)
+scale = Vector2(3, 3)
+texture = ExtResource("2_jc3gd")
+
+[node name="Button" parent="." instance=ExtResource("7_2y8kt")]
+position = Vector2(588, 251)
+color = "blue"
+id = 5
+
+[node name="Button2" parent="." instance=ExtResource("7_2y8kt")]
+position = Vector2(131, 230)
+color = "red"
+id = 4
+
+[node name="Player" parent="." instance=ExtResource("2_yfp70")]
+position = Vector2(361, 581)
+
+[node name="Flag" parent="." instance=ExtResource("3_pydbh")]
+position = Vector2(369, 126)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("4_2aaho")]
+position = Vector2(356, 579)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(673, 372)
+scale = Vector2(1, 35.68)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(25, 312)
+scale = Vector2(1, 35.68)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(204, 235)
+scale = Vector2(1.8, 20)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(500, 235)
+scale = Vector2(1.8, 20)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(376, 25)
+scale = Vector2(48.12, 1)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("5_o6tbe")]
+position = Vector2(346, 673)
+scale = Vector2(35.2, 1)
+
+[node name="PushableBox" parent="." instance=ExtResource("8_b7e6u")]
+position = Vector2(613, 132)
+
+[node name="PushableBox2" parent="." instance=ExtResource("8_b7e6u")]
+position = Vector2(84, 107)
+
+[node name="SizeSpecificGrid" parent="." instance=ExtResource("16_xs381")]
+position = Vector2(108, 556)
+scale = Vector2(7.68, 12.08)
+size_type = 1.5
+
+[node name="SizeSpecificGrid2" parent="." instance=ExtResource("16_xs381")]
+position = Vector2(590, 556)
+scale = Vector2(7.68, 12.08)
+size_type = 1.5
+
+[node name="TutorialPrompt" parent="." instance=ExtResource("17_1r760")]
+position = Vector2(204, 417)
+num = 7
+
+[node name="TutorialPrompt2" parent="." instance=ExtResource("17_1r760")]
+position = Vector2(503, 415)
+num = 7
+
+[node name="GUI" parent="." instance=ExtResource("6_4ixvm")]
+metadata/_edit_use_anchors_ = true

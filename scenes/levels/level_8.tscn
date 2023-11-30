@@ -1,0 +1,148 @@
+[gd_scene load_steps=10 format=3 uid="uid://vxxvmcxb3h8s"]
+
+[ext_resource type="Texture2D" uid="uid://d3bmanbf884su" path="res://assets/world/levels/level_8.png" id="1_buv8r"]
+[ext_resource type="PackedScene" uid="uid://dfab5vlm5tvub" path="res://scenes/player.tscn" id="2_po0ej"]
+[ext_resource type="PackedScene" uid="uid://d0tqha4lgo0hs" path="res://scenes/flag.tscn" id="3_gqmkw"]
+[ext_resource type="PackedScene" uid="uid://bfph7m44clrnf" path="res://scenes/respawn.tscn" id="4_utlrs"]
+[ext_resource type="PackedScene" uid="uid://dac0d80tgtmgu" path="res://scenes/wall.tscn" id="5_15f1y"]
+[ext_resource type="PackedScene" uid="uid://dn16xlg2h6vcl" path="res://scenes/size_specific_grid.tscn" id="6_trns4"]
+[ext_resource type="PackedScene" uid="uid://dbkgonbs166rk" path="res://scenes/gui.tscn" id="7_fke4r"]
+[ext_resource type="PackedScene" uid="uid://dxqtcgieav0na" path="res://scenes/tutorial_prompt.tscn" id="8_us0g7"]
+[ext_resource type="PackedScene" uid="uid://c1xyx0j58w2oe" path="res://scenes/wall_light.tscn" id="9_45mdo"]
+
+[node name="Level8" type="Node2D"]
+
+[node name="LevelMap" type="Sprite2D" parent="."]
+position = Vector2(349, 349)
+scale = Vector2(3, 3)
+texture = ExtResource("1_buv8r")
+
+[node name="Player" parent="." instance=ExtResource("2_po0ej")]
+position = Vector2(600, 627)
+
+[node name="Flag" parent="." instance=ExtResource("3_gqmkw")]
+position = Vector2(509, 135)
+scale = Vector2(5, 4.76)
+
+[node name="Respawn" parent="." instance=ExtResource("4_utlrs")]
+position = Vector2(601, 628)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(76, 480)
+scale = Vector2(1, 20.56)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(221, 354)
+scale = Vector2(18.4782, -0.847605)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(319, 440)
+scale = Vector2(18.4782, -0.847605)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(130, 561)
+scale = Vector2(1, 4.96)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(130, 502)
+scale = Vector2(1, 4.96)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(130, 440)
+scale = Vector2(1, 4.96)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(155, 440)
+scale = Vector2(1.52, 4.96)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(612, 122)
+scale = Vector2(1, 14.64)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(496, 40)
+scale = Vector2(17.64, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(209, 645)
+scale = Vector2(12.44, 1)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(425, 645)
+scale = Vector2(12.44, 1)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(244, 601)
+scale = Vector2(12.44, 1)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(425, 601)
+scale = Vector2(12.44, 1)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(596, 571)
+scale = Vector2(6.24, 1)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(656, 626)
+scale = Vector2(0.799997, 4.96)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(598, 685)
+scale = Vector2(6.24, 1)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(533, 664)
+scale = Vector2(1.64, 1)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(533, 585)
+scale = Vector2(1.64, 1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(387, 151)
+rotation = 1.57239
+scale = Vector2(11.7988, 2.32)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(402, 292)
+rotation = 1.57239
+scale = Vector2(7.03915, 2.32)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(485, 326)
+rotation = 1.57239
+scale = Vector2(10.4391, 2.32)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("5_15f1y")]
+position = Vector2(550, 241)
+rotation = 1.57239
+scale = Vector2(1.95871, 6.15943)
+
+[node name="SizeSpecificGrid" parent="." instance=ExtResource("6_trns4")]
+position = Vector2(309, 398)
+scale = Vector2(9.96, 3.68)
+size_type = 1.5
+
+[node name="SizeSpecificGrid2" parent="." instance=ExtResource("6_trns4")]
+position = Vector2(105, 508)
+scale = Vector2(1.78944, 8.47413)
+
+[node name="TutorialPrompt" parent="." instance=ExtResource("8_us0g7")]
+position = Vector2(132, 523)
+animation = &"size_1"
+num = 6
+
+[node name="TutorialPrompt2" parent="." instance=ExtResource("8_us0g7")]
+position = Vector2(306, 450)
+animation = &"size_15"
+num = 7
+
+[node name="WallLight" parent="." instance=ExtResource("9_45mdo")]
+position = Vector2(459, 400)
+rotation = 3.14159
+
+[node name="GUI" parent="." instance=ExtResource("7_fke4r")]
+metadata/_edit_use_anchors_ = true
